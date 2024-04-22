@@ -1,0 +1,77 @@
+<!-- app.component.html -->
+
+<div class="container">
+    <h1 class="title">Train Scheduler</h1>
+  
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search..." (input)="filterData()" class="search-input">
+      <button class="add-button" (click)="addTrainFormVisible = !addTrainFormVisible">Add Train</button>
+      <button class="add-button " style="margin-left: 10px;" (click)="allTrain()" >All Train</button>
+    </div>
+  
+    <table *ngIf="searchQuery" class="train-table">
+      <thead>
+        <tr>
+          <th>Train Number</th>
+          <th>Train Name</th>
+          <th>Departure Time</th>
+          <th>Departure Station</th>
+          <th>Arraival Time</th>
+          <th>Arraiving Station</th>
+          <th>Intermmediate Stations</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let train of filteredTrains" class="train-row">
+          <td>{{ train.trainNumber }}</td>
+          <td>{{ train.trainName}}</td>
+          <td>{{ train.trainDepartureTime }}</td>
+          <td>{{ train.trainDepartureStation }}</td>
+          <td>{{ train.trainArrivalTime }}</td>
+          <td>{{ train.trainArrivalStation }}</td>
+          <td>{{ train.trainSubstationList }}</td>
+          <td><i class="fas fa-pencil-alt edit-icon" (click)="updateTrain(train)"></i></td>
+          <td><i class="fas fa-trash-alt delete-icon" (click)="deleteTrain(train.trainNumber)"></i></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form *ngIf="addTrainFormVisible" (submit)="addNewTrain()" class="addTrainForm">
+        <label>Train Number:</label>
+        <input type="text" [(ngModel)]="newTrain.trainNumber" name="number" required><br>
+        <label>Train Name:</label>
+        <input type="text" [(ngModel)]="newTrain.trainName" name="number" required><br>
+        <label>Departure Time:</label>
+        <input type="text" [(ngModel)]="newTrain.trainDepartureTime" name="departureTime" required><br>
+        <label>Departing Station:</label>
+        <input type="text" [(ngModel)]="newTrain.trainDepartureStation" name="departingStation" required><br>
+        <label>Arrival Time:</label>
+        <input type="text" [(ngModel)]="newTrain.trainArrivalTime" name="arrivalTime" required><br>
+        <label>Arriving Station:</label>
+        <input type="text" [(ngModel)]="newTrain.trainArrivalStation" name="arrivingStation" required><br>
+        <label>Intermediate Station:</label>
+        <input type="text" [(ngModel)]="newTrain.trainSubstationList" name="intermediateStation"><br>
+        <button type="submit">Add</button>
+      </form>
+
+      <form *ngIf="editTrain" (submit)="sendEdited()" class="addTrainForm">
+        <label>Train Number:</label>
+        <input type="text" [(ngModel)]="EditTrain.trainNumber" name="number" required><br>
+        <label>Train Name:</label>
+        <input type="text" [(ngModel)]="EditTrain.trainName" name="name" required><br>
+        <label>Departure Time:</label>
+        <input type="text" [(ngModel)]="EditTrain.trainDepartureTime" name="departureTime" required><br>
+        <label>Departing Station:</label>
+        <input type="text" [(ngModel)]="EditTrain.trainDepartureStation" name="departingStation" required><br>
+        <label>Arrival Time:</label>
+        <input type="text" [(ngModel)]="EditTrain.trainArrivalTime" name="arrivalTime" required><br>
+        <label>Arriving Station:</label>
+        <input type="text" [(ngModel)]="EditTrain.trainArrivalStation" name="arrivingStation" required><br>
+        <label>Intermediate Station:</label>
+        <input type="text" [(ngModel)]="EditTrain.trainSubstationList" name="intermediateStation"><br>
+        <button type="submit">Add</button>
+      </form>
+  </div>
+  

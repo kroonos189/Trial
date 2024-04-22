@@ -1,0 +1,90 @@
+/* styles.css (or any other CSS file you are using) */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .search-container {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+  .search-input {
+    padding: 10px;
+    width: calc(100% - 120px);
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    margin-right: 20px;
+  }
+  
+  .add-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: white;
+    cursor: pointer;
+    width: 150px;
+  }
+  
+  .add-button:hover {
+    background-color: #45a049;
+  }
+  
+  .train-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .train-table th, .train-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .train-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .train-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .train-row:hover {
+    background-color: #e9e9e9;
+  }
+  .edit-icon, .delete-icon {
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .edit-icon {
+    color: #2196F3;
+  }
+  
+  .delete-icon {
+    color: #F44336;
+  }
+  
+  .edit-icon:hover, .delete-icon:hover {
+    opacity: 0.7;
+  }
+  .addTrainForm{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
